@@ -31,7 +31,7 @@
         <a class="button button-quiet" [href]="cvUrl" target="_blank" rel="noopener">Descargar CV <span aria-hidden="true">↗</span></a>
       </div>
       <dl class="hero-facts" aria-label="Resumen profesional">
-        <div><dt>ENFOQUE</dt><dd>Full stack · Cloud</dd></div>
+        <div><dt>ENFOQUE</dt><dd>Full Stack · Redes · Seguridad</dd></div>
         <div><dt>UBICACIÓN</dt><dd>Colombia · Remoto</dd></div>
         <div><dt>IDIOMAS</dt><dd>Español · Inglés B2</dd></div>
       </dl>
@@ -70,7 +70,9 @@
       @for (project of projects; track project.name; let index = $index) {
         <article class="project-card" [class]="'project-card ' + project.accent">
           <div class="project-number">0{{ index + 1 }}</div>
-          <div class="project-art" aria-hidden="true"><span class="art-symbol">{{ project.accent === 'music' ? '♫' : project.accent === 'battle' ? '⌘' : '↗' }}</span><span class="art-line"></span></div>
+          <div class="project-image-wrap" aria-hidden="true">
+            <img [src]="project.image" alt="" loading="lazy">
+          </div>
           <div class="project-body"><p class="project-eyebrow">{{ project.eyebrow }}</p><h3>{{ project.name }}</h3><p class="project-statement">{{ project.statement }}</p><p class="project-impact">{{ project.impact }}</p><div class="tags">@for (tag of project.tags; track tag) { <span>{{ tag }}</span> }</div><a [href]="project.url" target="_blank" rel="noopener" class="project-link">Abrir proyecto <span aria-hidden="true">↗</span></a></div>
         </article>
       }

@@ -22,7 +22,7 @@
       </div>
     </div>
     <h1 class="profile-name">Sebastián Vega</h1>
-    <p class="profile-bio">Software Engineering Student · Full Stack · Cloud</p>
+    <p class="profile-bio">Software Engineering Student · Full Stack · Redes · Ciberseguridad</p>
   </div>
 
   <nav class="social-row">
@@ -92,8 +92,16 @@
     }
   </section>
 
+    <a class="link-card link-card-cv" [href]="cvUrl" target="_blank" rel="noopener">
+      <div class="link-card-body">
+        <span class="link-card-label">Descargar CV</span>
+      </div>
+      <svg class="link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+
   <footer class="links-footer">
     <p>&copy; 2026 Sebastián Vega</p>
+    <a routerLink="/">Volver al portafolio</a>
   </footer>
   </main>
 </div>
