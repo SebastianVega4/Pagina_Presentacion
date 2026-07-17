@@ -1,106 +1,160 @@
-import { Component, ElementRef, AfterViewInit, inject } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, inject, signal } from '@angular/core';
+import { ReactiveFormsModule, Validators, NonNullableFormBuilder } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 
 interface Project {
-  title: string;
-  description: string;
+  name: string;
+  eyebrow: string;
+  statement: string;
+  impact: string;
   url: string;
   tags: string[];
+  accent: string;
 }
 
-interface Education {
+interface Capability {
+  number: string;
   title: string;
-  institution: string;
-  period: string;
-  credential?: string;
-  credentialUrl?: string;
+  description: string;
+}
+
+interface LabItem {
+  status: 'Activo' | 'En diseño' | 'Próximamente';
+  title: string;
+  description: string;
+  stack: string;
 }
 
 @Component({
   selector: 'app-portfolio',
-  imports: [RouterLink],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './portfolio.html',
   styleUrl: './portfolio.css'
 })
-export class Portfolio implements AfterViewInit {
+export class Portfolio implements AfterViewInit, OnDestroy {
   private readonly host = inject(ElementRef<HTMLElement>);
+  private readonly formBuilder = inject(NonNullableFormBuilder);
+  private observer?: IntersectionObserver;
 
-  readonly photoUrl = '';
   readonly cvUrl = '/CV_SebastianVega.pdf';
   readonly email = 'Sebastian.vegar2015@gmail.com';
-  readonly phone = '+57 313 389 0068';
-  readonly location = 'Colombia';
   readonly linkedinUrl = 'https://www.linkedin.com/in/johan-sebastian-vega-ruiz-b1292011b';
   readonly githubUrl = 'https://github.com/SebastianVega4';
+  readonly whatsappUrl = 'https://wa.me/573133890068';
+  readonly menuOpen = signal(false);
+  readonly formStatus = signal('');
 
-  readonly skills: string[] = [
-    'Angular', 'TypeScript', 'JavaScript', 'HTML/CSS', 'Node.js',
-    'Python', 'Java', 'SQL', 'C++', 'Git/GitHub', 'Docker',
-    'Firebase', 'Linux', 'Arduino', 'ESP32'
+  readonly capabilities: Capability[] = [
+    { number: '01', title: 'Productos web', description: 'Interfaces Angular claras, rápidas y orientadas a una necesidad concreta.' },
+    { number: '02', title: 'Integración técnica', description: 'APIs, lógica de negocio y persistencia para convertir una idea en un producto útil.' },
+    { number: '03', title: 'Automatización', description: 'Procesos repetibles con Python, Git y flujos de despliegue que reducen fricción.' },
+    { number: '04', title: 'Documentación', description: 'Trabajo explicable y mantenible: decisiones, contexto y próximos pasos visibles.' }
   ];
 
   readonly projects: Project[] = [
     {
-      title: 'Music UPTC',
-      description: 'Plataforma para que estudiantes voten por canciones a reproducir en el restaurante estudiantil. Asociado con UPTC.',
+      name: 'Music UPTC',
+      eyebrow: 'Producto para comunidad universitaria',
+      statement: 'Una plataforma participativa para decidir la música del restaurante estudiantil.',
+      impact: 'Convierte una dinámica cotidiana del campus en una experiencia digital compartida.',
       url: 'https://sebastianvega4.github.io/Music_Uptc_Sogamoso',
-      tags: ['Angular', 'TypeScript', 'Python']
+      tags: ['Angular', 'TypeScript', 'Python'],
+      accent: 'music'
     },
     {
-      title: 'Web ByteBattle',
-      description: 'Retos de programación para estudiantes con remuneración. Plataforma de competencias de código.',
+      name: 'ByteBattle',
+      eyebrow: 'Aprendizaje a través de retos',
+      statement: 'Concepto de plataforma para retos de programación y competencias entre estudiantes.',
+      impact: 'Diseñada para transformar práctica técnica en participación, progreso y comunidad.',
       url: 'https://github.com/SebastianVega4',
-      tags: ['Angular', 'Node.js', 'TypeScript']
+      tags: ['Angular', 'Node.js', 'TypeScript'],
+      accent: 'battle'
     },
     {
-      title: 'Triatlon UPTC 2025-2',
-      description: 'Gestión y edición de la segunda edición de la triatlón UPTC-Sogamoso. Clasificación en vivo.',
+      name: 'Triatlón UPTC',
+      eyebrow: 'Operación de eventos',
+      statement: 'Experiencia web para la organización y consulta de una competición universitaria.',
+      impact: 'Información clara para participantes, público y equipo organizador en un momento crítico.',
       url: 'https://github.com/SebastianVega4',
-      tags: ['Angular', 'GitHub']
-    },
-    {
-      title: 'Semana Técnica Geología',
-      description: 'Aplicación web para la XVII Semana Técnica de Geología en UPTC Sogamoso.',
-      url: 'https://xviisemanatecnicadegeologia.com',
-      tags: ['Angular', 'TypeScript']
+      tags: ['Angular', 'GitHub', 'UX'],
+      accent: 'race'
     }
   ];
 
-  readonly education: Education[] = [
-    {
-      title: 'Ingeniería de Sistemas',
-      institution: 'Universidad Pedagógica y Tecnológica de Colombia',
-      period: 'ago. 2020 – dic. 2026'
-    },
-    {
-      title: 'English Certificate B2',
-      institution: 'EF',
-      period: 'mar. 2026',
-      credential: 'Z4ULcb',
-      credentialUrl: 'https://cert.efset.org/Z4ULcb'
-    },
-    {
-      title: 'Emprendimiento G5 - ONE',
-      institution: 'Alura Latam',
-      period: 'jul. 2023',
-      credential: 'ac1bfff1-1704-4f04-8706-0cc58a6646ed',
-      credentialUrl: 'https://app.aluracursos.com/degree/certificate/ac1bfff1-1704-4f04-8706-0cc58a6646ed'
-    }
+  readonly stacks = [
+    { label: 'Frontend', items: ['Angular', 'TypeScript', 'JavaScript', 'HTML / CSS'] },
+    { label: 'Backend & datos', items: ['Node.js', 'Python', 'Java', 'SQL'] },
+    { label: 'Infraestructura', items: ['Git / GitHub', 'Linux', 'Docker', 'Oracle Cloud'] },
+    { label: 'Hardware & diseño', items: ['Arduino', 'ESP32', 'Figma', 'Power BI'] }
   ];
+
+  readonly milestones = [
+    { year: '2020', title: 'Ingeniería de Sistemas', text: 'Inicio de formación en la UPTC.' },
+    { year: '2023', title: 'ONE · Alura Latam', text: 'Formación complementaria en emprendimiento y tecnología.' },
+    { year: '2025', title: 'Proyectos UPTC', text: 'Aplicaciones para comunidad, eventos y retos estudiantiles.' },
+    { year: '2026', title: 'Cloud & automatización', text: 'Profundizando en infraestructura, bases de datos y prácticas profesionales.' }
+  ];
+
+  readonly labItems: LabItem[] = [
+    { status: 'En diseño', title: 'ATLAS Cloud', description: 'Laboratorio de redes, Object Storage, bases de datos y Terraform sobre Oracle Cloud Always Free.', stack: 'Oracle Cloud · Terraform · SQL' },
+    { status: 'Próximamente', title: 'ATLAS HomeLab', description: 'Servicios autohospedados, monitorización y automatizaciones cuando exista capacidad de cómputo.', stack: 'Docker · Linux · Networking' },
+    { status: 'Activo', title: 'SV Platform', description: 'Esta plataforma personal: un producto vivo para documentar proyectos, aprendizaje y evolución técnica.', stack: 'Angular · GitHub Pages · CI/CD' }
+  ];
+
+  readonly roadmap = [
+    { title: 'Angular & web', status: 'Construyendo', level: 86 },
+    { title: 'Python & automatización', status: 'Profundizando', level: 72 },
+    { title: 'Oracle Cloud', status: 'En laboratorio', level: 48 },
+    { title: 'Terraform & DevOps', status: 'En ruta', level: 34 },
+    { title: 'Docker & Linux', status: 'En ruta', level: 42 }
+  ];
+
+  readonly posts = [
+    { category: 'En preparación', title: 'De portafolio a plataforma: construir evidencia de aprendizaje', date: 'Próximamente' },
+    { category: 'ATLAS Cloud', title: 'Mi ruta para aprender Oracle Cloud sin depender de una VM', date: 'Próximamente' },
+    { category: 'Desarrollo', title: 'Lo que aprendí creando productos para una comunidad universitaria', date: 'Próximamente' }
+  ];
+
+  readonly certifications = [
+    { name: 'English Certificate B2', issuer: 'EF SET', date: 'Marzo 2026', url: 'https://cert.efset.org/Z4ULcb' },
+    { name: 'Emprendimiento G5', issuer: 'Oracle Next Education · Alura Latam', date: 'Julio 2023', url: 'https://app.aluracursos.com/degree/certificate/ac1bfff1-1704-4f04-8706-0cc58a6646ed' }
+  ];
+
+  readonly contactForm = this.formBuilder.group({
+    name: ['', [Validators.required, Validators.minLength(2)]],
+    email: ['', [Validators.required, Validators.email]],
+    message: ['', [Validators.required, Validators.minLength(10)]]
+  });
 
   ngAfterViewInit(): void {
-    const el = this.host.nativeElement;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('reveal-visible');
-          }
-        }
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
-    );
+    if (!('IntersectionObserver' in window)) return;
+    this.observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('is-visible');
+      });
+    }, { threshold: 0.12 });
+    const revealSections: Element[] = Array.from(this.host.nativeElement.querySelectorAll('.reveal'));
+    revealSections.forEach((element) => this.observer?.observe(element));
+  }
 
-    el.querySelectorAll('.reveal').forEach((s: Element) => observer.observe(s));
+  ngOnDestroy(): void {
+    this.observer?.disconnect();
+  }
+
+  closeMenu(): void {
+    this.menuOpen.set(false);
+  }
+
+  sendMessage(): void {
+    this.contactForm.markAllAsTouched();
+    if (this.contactForm.invalid) {
+      this.formStatus.set('Revisa los campos marcados antes de enviar el mensaje.');
+      return;
+    }
+    const value = this.contactForm.getRawValue();
+    const subject = encodeURIComponent(`Contacto desde sebastianvega.site — ${value.name}`);
+    const body = encodeURIComponent(`Nombre: ${value.name}\nCorreo: ${value.email}\n\n${value.message}`);
+    this.formStatus.set('Abriendo tu cliente de correo…');
+    window.location.href = `mailto:${this.email}?subject=${subject}&body=${body}`;
   }
 }
