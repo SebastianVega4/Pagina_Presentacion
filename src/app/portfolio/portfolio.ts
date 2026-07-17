@@ -39,12 +39,33 @@ export class Portfolio implements AfterViewInit, OnDestroy {
 
   readonly cvUrl = '/CV_SebastianVega.pdf';
   readonly profilePhotoUrl = '/Profile.jpeg';
+  readonly bannerUrl = '/Banner.jpeg';
   readonly email = 'Sebastian.vegar2015@gmail.com';
   readonly linkedinUrl = 'https://www.linkedin.com/in/johan-sebastian-vega-ruiz-b1292011b';
   readonly githubUrl = 'https://github.com/SebastianVega4';
   readonly whatsappUrl = 'https://wa.me/573133890068';
   readonly menuOpen = signal(false);
   readonly formStatus = signal('');
+  readonly isDark = signal(true);
+
+  constructor() {
+    const stored = localStorage.getItem('theme');
+    if (stored === 'light') {
+      this.isDark.set(false);
+      document.documentElement.classList.add('light-theme');
+    }
+  }
+
+  toggleTheme(): void {
+    this.isDark.update(v => !v);
+    if (this.isDark()) {
+      document.documentElement.classList.remove('light-theme');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.add('light-theme');
+      localStorage.setItem('theme', 'light');
+    }
+  }
 
   readonly capabilities: Capability[] = [
     { number: '01', title: 'Desarrollo Full Stack', description: 'Aplicaciones web completas con Angular, Spring Boot, Flask y bases de datos relacionales y NoSQL.' },

@@ -1,7 +1,42 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap');
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; background: #f8f7f3; }
-body { margin: 0; min-width: 320px; background: var(--paper); color: var(--ink); font-family: var(--font-body); -webkit-font-smoothing: antialiased; }
-:root { --paper: #f8f7f3; --ink: #17242b; --muted: #627076; --accent: #5bd5df; --accent-deep: #0f7f87; --font-display: 'Playfair Display', Georgia, serif; --font-body: 'Manrope', sans-serif; --font-mono: 'DM Mono', monospace; }
-a { color: inherit; text-decoration: none; } button, input, textarea { font: inherit; } button { cursor: pointer; border: 0; background: none; } :focus-visible { outline: 3px solid #0f7f87; outline-offset: 3px; } :target { scroll-margin-top: 6rem; }
+html { scroll-behavior: smooth; background: #0e0e0e; }
+body { margin: 0; min-width: 320px; background: var(--paper); color: var(--ink); font-family: var(--font-body); -webkit-font-smoothing: antialiased; transition: background .3s ease, color .3s ease; }
+
+:root {
+  --paper: #0e0e0e;
+  --ink: #e8e6e0;
+  --muted: #8a9499;
+  --accent: #5bd5df;
+  --accent-deep: #0f7f87;
+  --surface: #181818;
+  --surface-hover: #222;
+  --surface-card: #1a1a1a;
+  --border: rgba(255, 255, 255, .08);
+  --glow: rgba(91, 213, 223, .15);
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Manrope', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+}
+
+.light-theme {
+  --paper: #f8f7f3;
+  --ink: #17242b;
+  --muted: #627076;
+  --surface: #efece6;
+  --surface-hover: #e8e4dc;
+  --surface-card: #f1eee8;
+  --border: rgba(0, 0, 0, .09);
+  --glow: rgba(91, 213, 223, .25);
+}
+
+a { color: inherit; text-decoration: none; }
+button, input, textarea { font: inherit; }
+button { cursor: pointer; border: 0; background: none; }
+:focus-visible { outline: 3px solid var(--accent-deep); outline-offset: 3px; }
+:target { scroll-margin-top: 6rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}

@@ -6,9 +6,18 @@
       <span class="brand-mark" aria-hidden="true">SV</span>
       <span>SEBASTIÁN VEGA</span>
     </a>
-    <button class="menu-toggle" type="button" [attr.aria-expanded]="menuOpen()" aria-controls="main-menu" aria-label="Mostrar navegación" (click)="menuOpen.set(!menuOpen())">
-      <span></span><span></span>
-    </button>
+    <div class="nav-actions">
+      <button class="theme-toggle" type="button" (click)="toggleTheme()" [attr.aria-label]="isDark() ? 'Activar tema claro' : 'Activar tema oscuro'">
+        @if (isDark()) {
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        } @else {
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        }
+      </button>
+      <button class="menu-toggle" type="button" [attr.aria-expanded]="menuOpen()" aria-controls="main-menu" aria-label="Mostrar navegación" (click)="menuOpen.set(!menuOpen())">
+        <span></span><span></span>
+      </button>
+    </div>
     <div id="main-menu" class="nav-links" [class.is-open]="menuOpen()">
       <a href="#work" (click)="closeMenu()">Proyectos</a>
       <a href="#lab" (click)="closeMenu()">Laboratorio</a>
@@ -21,7 +30,9 @@
 
 <main id="main-content">
   <section id="top" class="hero" aria-labelledby="hero-title">
-    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-banner" aria-hidden="true">
+      <img [src]="bannerUrl" alt="" fetchpriority="low">
+    </div>
     <div class="hero-content">
       <p class="eyebrow live-status"><span></span> DISPONIBLE PARA PRÁCTICA PROFESIONAL · 2026</p>
       <h1 id="hero-title">Construyo software que<br><em>mueve ideas adelante.</em></h1>
