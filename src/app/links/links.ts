@@ -15,6 +15,8 @@ interface SocialLink {
   styleUrl: './links.css'
 })
 export class Links {
+  readonly photoUrl = ''; // Cambia esta ruta cuando tengas tu foto: '/assets/foto.jpg'
+
   readonly mainLinks: SocialLink[] = [
     {
       name: 'WEB Music UPTC-Sog',
@@ -37,7 +39,7 @@ export class Links {
       icon: 'instagram'
     },
     {
-      name: '$ Pagos | Transferencias $',
+      name: 'Pagos | Transferencias',
       url: 'https://paypal.me/JohanVegaRuiz',
       icon: 'dollar'
     }
