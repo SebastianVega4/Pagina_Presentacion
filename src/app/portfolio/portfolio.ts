@@ -37,6 +37,7 @@ export class Portfolio implements AfterViewInit, OnDestroy {
   private observer?: IntersectionObserver;
 
   readonly cvUrl = '/CV_SebastianVega.pdf';
+  readonly profilePhotoUrl = '/Profile.jpeg';
   readonly email = 'Sebastian.vegar2015@gmail.com';
   readonly linkedinUrl = 'https://www.linkedin.com/in/johan-sebastian-vega-ruiz-b1292011b';
   readonly githubUrl = 'https://github.com/SebastianVega4';
@@ -88,11 +89,10 @@ export class Portfolio implements AfterViewInit, OnDestroy {
     { label: 'Hardware & diseño', items: ['Arduino', 'ESP32', 'Figma', 'Power BI'] }
   ];
 
-  readonly milestones = [
-    { year: '2020', title: 'Ingeniería de Sistemas', text: 'Inicio de formación en la UPTC.' },
-    { year: '2023', title: 'ONE · Alura Latam', text: 'Formación complementaria en emprendimiento y tecnología.' },
-    { year: '2025', title: 'Proyectos UPTC', text: 'Aplicaciones para comunidad, eventos y retos estudiantiles.' },
-    { year: '2026', title: 'Cloud & automatización', text: 'Profundizando en infraestructura, bases de datos y prácticas profesionales.' }
+  readonly workingPrinciples = [
+    { number: 'I', title: 'Entender antes de construir', text: 'Convierto la necesidad de usuarios y equipos en una solución clara, con prioridades definidas.' },
+    { number: 'II', title: 'Entregar con criterio', text: 'Cuido la experiencia, la implementación y los detalles que hacen que un producto sea confiable.' },
+    { number: 'III', title: 'Dejar contexto útil', text: 'Documento decisiones y aprendizajes para que el siguiente avance no dependa de una sola persona.' }
   ];
 
   readonly labItems: LabItem[] = [
@@ -101,12 +101,10 @@ export class Portfolio implements AfterViewInit, OnDestroy {
     { status: 'Activo', title: 'SV Platform', description: 'Esta plataforma personal: un producto vivo para documentar proyectos, aprendizaje y evolución técnica.', stack: 'Angular · GitHub Pages · CI/CD' }
   ];
 
-  readonly roadmap = [
-    { title: 'Angular & web', status: 'Construyendo', level: 86 },
-    { title: 'Python & automatización', status: 'Profundizando', level: 72 },
-    { title: 'Oracle Cloud', status: 'En laboratorio', level: 48 },
-    { title: 'Terraform & DevOps', status: 'En ruta', level: 34 },
-    { title: 'Docker & Linux', status: 'En ruta', level: 42 }
+  readonly focusAreas = [
+    { title: 'Software web', detail: 'Interfaces, experiencia de usuario e integración de servicios con Angular y TypeScript.' },
+    { title: 'Datos y automatización', detail: 'SQL, Python y procesos repetibles para convertir información en decisiones y tiempo recuperado.' },
+    { title: 'Cloud y operaciones', detail: 'Infraestructura como código, contenedores y prácticas que hacen sostenible un producto.' }
   ];
 
   readonly posts = [

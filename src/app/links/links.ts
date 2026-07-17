@@ -15,11 +15,12 @@ interface SocialLink {
   styleUrl: './links.css'
 })
 export class Links {
-  readonly photoUrl = ''; // Cambia esta ruta cuando tengas tu foto: '/assets/foto.jpg'
+  readonly photoUrl = '/Profile.jpeg';
+  readonly bannerUrl = '/Banner.jpeg';
 
   readonly mainLinks: SocialLink[] = [
     {
-      name: 'WEB Music UPTC-Sog',
+      name: 'Music UPTC',
       url: 'https://sebastianvega4.github.io/Music_Uptc_Sogamoso',
       icon: 'globe'
     },
@@ -34,12 +35,12 @@ export class Links {
       icon: 'github'
     },
     {
-      name: 'Emprendimiento DomoTechSV',
+      name: 'DomoTechSV',
       url: 'https://www.instagram.com/domotechsv',
       icon: 'instagram'
     },
     {
-      name: 'Pagos | Transferencias',
+      name: 'Pagos y transferencias',
       url: 'https://paypal.me/JohanVegaRuiz',
       icon: 'dollar'
     }

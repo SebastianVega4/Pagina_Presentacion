@@ -1,11 +1,15 @@
 <div class="links-page">
+  <div class="links-banner" aria-hidden="true">
+    <img [src]="bannerUrl" alt="">
+  </div>
   <header class="links-top">
     <a routerLink="/" class="back-btn">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><path d="M19 12H5m7-7l-7 7 7 7"/></svg>
-      Portfolio
+      Portafolio
     </a>
   </header>
 
+  <main class="links-content">
   <div class="links-profile">
     <div class="profile-photo-ring" [class.has-photo]="photoUrl">
       <div class="profile-photo" [style.background-image]="photoUrl ? 'url(' + photoUrl + ')' : null">
@@ -18,7 +22,7 @@
       </div>
     </div>
     <h1 class="profile-name">Sebastián Vega</h1>
-    <p class="profile-bio">Desarrollador Full Stack</p>
+    <p class="profile-bio">Software Engineering Student · Full Stack · Cloud</p>
   </div>
 
   <nav class="social-row">
@@ -57,7 +61,8 @@
     }
   </nav>
 
-  <main class="links-main">
+  <section class="links-main" aria-labelledby="featured-links-title">
+    <div class="links-heading"><p>ENLACES DESTACADOS</p><h2 id="featured-links-title">Encuéntrame aquí</h2></div>
     @for (link of mainLinks; track link.name) {
       <a [href]="link.url" target="_blank" class="link-card" rel="noopener">
         <div class="link-card-body">
@@ -85,9 +90,10 @@
         <svg class="link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
     }
-  </main>
+  </section>
 
   <footer class="links-footer">
     <p>&copy; 2026 Sebastián Vega</p>
   </footer>
+  </main>
 </div>

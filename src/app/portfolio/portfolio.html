@@ -36,10 +36,9 @@
         <div><dt>IDIOMAS</dt><dd>Español · Inglés B2</dd></div>
       </dl>
     </div>
-    <div class="hero-visual" aria-label="Monograma Sebastián Vega">
-      <div class="signal-orbit orbit-one"></div><div class="signal-orbit orbit-two"></div>
-      <div class="monogram"><span>S</span><span>V</span></div>
-      <p class="visual-label">SV / PLATFORM<br>BUILD · LEARN · SHARE</p>
+    <div class="hero-visual">
+      <img [src]="profilePhotoUrl" alt="Sebastián Vega con traje negro en un entorno de trabajo" fetchpriority="high">
+      <div class="photo-label"><span>SEBASTIÁN VEGA</span><span>SOFTWARE / CLOUD</span></div>
     </div>
   </section>
 
@@ -83,9 +82,9 @@
     <div class="stack-grid">@for (stack of stacks; track stack.label) { <article class="stack-group"><h3>{{ stack.label }}</h3><ul>@for (item of stack.items; track item) { <li>{{ item }}</li> }</ul></article> }</div>
   </section>
 
-  <section class="section journey reveal" aria-labelledby="journey-title">
-    <div class="section-kicker">05 / RECORRIDO</div><h2 id="journey-title" class="section-heading">Aprender es parte<br>del producto.</h2>
-    <ol class="timeline">@for (item of milestones; track item.year) { <li><time>{{ item.year }}</time><div><h3>{{ item.title }}</h3><p>{{ item.text }}</p></div></li> }</ol>
+  <section class="section principles reveal" aria-labelledby="principles-title">
+    <div class="section-kicker">05 / FORMA DE TRABAJAR</div><h2 id="principles-title" class="section-heading">Cómo convierto una<br>idea en avance.</h2>
+    <div class="principle-list">@for (principle of workingPrinciples; track principle.number) { <article class="principle"><span>{{ principle.number }}</span><div><h3>{{ principle.title }}</h3><p>{{ principle.text }}</p></div></article> }</div>
   </section>
 
   <section id="lab" class="section lab reveal" aria-labelledby="lab-title">
@@ -93,14 +92,14 @@
     <div class="lab-grid">@for (item of labItems; track item.title) { <article class="lab-card"><div class="lab-card-top"><span class="status" [class.active]="item.status === 'Activo'">{{ item.status }}</span><span aria-hidden="true">⌁</span></div><h3>{{ item.title }}</h3><p>{{ item.description }}</p><footer>{{ item.stack }}</footer></article> }</div>
   </section>
 
-  <section id="roadmap" class="section roadmap reveal" aria-labelledby="roadmap-title">
-    <div class="section-topline"><div><div class="section-kicker">07 / ROADMAP 2026</div><h2 id="roadmap-title" class="section-heading">Progreso visible.<br>Curiosidad constante.</h2></div><p class="roadmap-note">No son porcentajes de dominio: son una bitácora honesta de en qué estoy invirtiendo tiempo.</p></div>
-    <div class="progress-list">@for (item of roadmap; track item.title) { <div class="progress-item"><div class="progress-label"><h3>{{ item.title }}</h3><span>{{ item.status }}</span></div><div class="progress-track" role="progressbar" [attr.aria-label]="item.title" aria-valuemin="0" aria-valuemax="100" [attr.aria-valuenow]="item.level"><span [style.width.%]="item.level"></span></div></div> }</div>
+  <section id="roadmap" class="section focus reveal" aria-labelledby="focus-title">
+    <div class="section-topline"><div><div class="section-kicker">07 / ESPECIALIDADES</div><h2 id="focus-title" class="section-heading">Áreas donde quiero<br>crear valor.</h2></div><p class="focus-note">Intereses técnicos con una dirección común: construir sistemas útiles, claros y sostenibles.</p></div>
+    <div class="focus-grid">@for (area of focusAreas; track area.title; let index = $index) { <article><span>0{{ index + 1 }}</span><h3>{{ area.title }}</h3><p>{{ area.detail }}</p></article> }</div>
   </section>
 
   <section class="section ecosystem reveal" aria-labelledby="ecosystem-title">
     <div><div class="section-kicker">08 / PLATAFORMA PERSONAL</div><h2 id="ecosystem-title" class="section-heading">Más que un<br>portafolio.</h2></div>
-    <div class="ecosystem-copy"><p>SV Platform reúne proyectos, laboratorio, documentación y aprendizaje. Su objetivo es simple: que una conversación con un reclutador pueda empezar desde evidencia concreta.</p><div class="stat-row"><div><strong>4+</strong><span>proyectos publicados</span></div><div><strong>15+</strong><span>tecnologías exploradas</span></div><div><strong>1</strong><span>dirección profesional</span></div></div></div>
+    <div class="ecosystem-copy"><p>SV Platform reúne proyectos, laboratorio y documentación. Su objetivo es simple: que una conversación con un reclutador empiece desde evidencia concreta, no desde una lista de promesas.</p><a href="#work" class="text-link">Ver el trabajo seleccionado <span aria-hidden="true">→</span></a></div>
   </section>
 
   <section id="blog" class="section blog reveal" aria-labelledby="blog-title">
