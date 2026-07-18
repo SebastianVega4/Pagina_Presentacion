@@ -120,7 +120,7 @@ export class Portfolio implements AfterViewInit, OnDestroy {
   readonly stacks = [
     { label: 'Frontend', items: ['Angular', 'TypeScript', 'JavaScript', 'HTML / CSS', 'Bootstrap'] },
     { label: 'Backend', items: ['Java / Spring Boot', 'Python / Flask', 'Node.js', 'PHP'] },
-    { label: 'Bases de Datos', items: ['MySQL', 'PostgreSQL', 'MongoDB', 'Redis', 'Cassandra', 'Firebase'] },
+    { label: 'Bases de Datos', items: ['MySQL', 'PostgreSQL', 'MongoDB', 'Redis', 'Cassandra','Dragonfly' , 'Firebase'] },
     { label: 'Redes y Sistemas', items: ['Linux (Apache/Nginx)', 'Windows Server', 'DNS · SMTP · TCP/IP', 'Cisco Packet Tracer', 'VirtualBox'] },
     { label: 'DevOps y Cloud', items: ['Docker', 'Git / GitHub', 'CI/CD', 'Oracle Cloud', 'Vercel / Railway'] },
     { label: 'Lenguajes y Herramientas', items: ['Java', 'Python', 'C++', 'C#', 'R', 'MATLAB / Octave', 'Assembly'] }
