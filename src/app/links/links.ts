@@ -20,11 +20,6 @@ export class Links {
 
   readonly mainLinks: SocialLink[] = [
     {
-      name: 'Music UPTC',
-      url: 'https://sebastianvega4.github.io/Music_Uptc_Sogamoso',
-      icon: 'globe'
-    },
-    {
       name: 'LinkedIn',
       url: 'https://www.linkedin.com/in/johan-sebastian-vega-ruiz-b1292011b',
       icon: 'linkedin'
@@ -33,11 +28,6 @@ export class Links {
       name: 'GitHub',
       url: 'https://github.com/SebastianVega4',
       icon: 'github'
-    },
-    {
-      name: 'DomoTechSV',
-      url: 'https://www.instagram.com/domotechsv',
-      icon: 'instagram'
     },
     {
       name: 'Pagos y transferencias',
@@ -50,12 +40,12 @@ export class Links {
     { name: 'Facebook', url: 'https://www.facebook.com/SebastianVegaR', icon: 'facebook' },
     { name: 'Instagram', url: 'https://instagram.com/Sebastian.VegaR', icon: 'instagram' },
     { name: 'X (Twitter)', url: 'https://x.com/Sebas123Vega', icon: 'x' },
-    { name: 'Threads', url: 'https://www.threads.com/@sebastian.vegar', icon: 'message-circle' },
-    { name: 'TikTok', url: 'https://tiktok.com/@sebastianvegar', icon: 'music' },
+    { name: 'Threads', url: 'https://www.threads.com/@sebastian.vegar', icon: 'threads' },
+    { name: 'TikTok', url: 'https://tiktok.com/@sebastianvegar', icon: 'tiktok' },
     { name: 'YouTube', url: 'https://www.youtube.com/channel/UCjOoZjxR_BltZN-mm4sk49Q', icon: 'youtube' },
-    { name: 'Spotify', url: 'https://open.spotify.com/user/31fgnblui7xd3q6qghygkuxy5jme', icon: 'music' },
+    { name: 'Spotify', url: 'https://open.spotify.com/user/31fgnblui7xd3q6qghygkuxy5jme', icon: 'spotify' },
     { name: 'Telegram', url: 'https://t.me/SebastianVegaR', icon: 'send' },
-    { name: 'WhatsApp', url: 'https://wa.me/573133890068', icon: 'message-circle' },
+    { name: 'WhatsApp', url: 'https://wa.me/573133890068', icon: 'whatsapp' },
     { name: 'Email', url: 'mailto:Sebastian.vegar2015@gmail.com', icon: 'mail' }
   ];
 }
