@@ -17,6 +17,7 @@ interface SocialLink {
 export class Links {
   readonly photoUrl = '/Profile.jpeg';
   readonly cvUrl = '/CV_SebastianVega.pdf';
+  readonly bannerUrl = '/Banner.jpeg';
 
   readonly mainLinks: SocialLink[] = [
     {
