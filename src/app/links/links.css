@@ -1,44 +1,77 @@
 :host { display: block; }
 .links-page { min-height: 100vh; padding-bottom: 2rem; background: var(--paper); color: var(--ink); }
 
-.links-cover { position: relative; width: 100%; height: 10rem; overflow: hidden; }
+.links-cover { position: relative; width: 100%; height: 14rem; overflow: hidden; }
 .cover-banner { position: absolute; inset: 0; }
-.cover-banner img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; filter: saturate(.5) brightness(.3); }
-.cover-banner::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 20%, var(--paper) 90%); }
+.cover-banner img { width: 100%; height: 100%; object-fit: cover; object-position: center 35%; filter: saturate(.6) brightness(.4); }
+.cover-banner::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 10%, color-mix(in srgb, var(--paper) 92%, transparent) 85%, var(--paper) 100%); }
 
-.links-content { width: min(100% - 2rem, 38rem); margin-inline: auto; margin-top: -3rem; position: relative; z-index: 3; }
+.links-content { width: min(100% - 2rem, 38rem); margin-inline: auto; margin-top: -4rem; position: relative; z-index: 3; }
 
-.links-profile { position: relative; padding: 4.25rem 1.75rem 1.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: .5rem; text-align: center; box-shadow: 0 2px 20px rgba(0,0,0,.06); }
-.profile-photo-ring { position: absolute; top: -3.15rem; left: 50%; transform: translateX(-50%); width: 6.8rem; height: 6.8rem; padding: .25rem; background: var(--accent-deep); border-radius: 50%; box-shadow: 0 0 0 .4rem var(--paper), 0 6px 24px rgba(0,0,0,.12); }
+.links-profile { position: relative; padding: 4.5rem 1.75rem 1.75rem; background: var(--surface); border: 1px solid var(--border); border-radius: .5rem; text-align: center; box-shadow: 0 4px 24px rgba(0,0,0,.08); }
+.profile-photo-ring { position: absolute; top: -3.4rem; left: 50%; transform: translateX(-50%); width: 7.2rem; height: 7.2rem; padding: .3rem; background: var(--accent-deep); border-radius: 50%; box-shadow: 0 0 0 .45rem var(--paper), 0 8px 28px rgba(0,0,0,.15); }
 .profile-photo { width: 100%; height: 100%; overflow: hidden; border-radius: 50%; background: var(--surface-card); background-size: cover; background-position: center; }
-.profile-name { margin-top: .5rem; font: 500 clamp(2rem, 7vw, 2.8rem)/1 var(--font-display); letter-spacing: -.06em; }
-.profile-bio { margin-top: .6rem; color: var(--muted); font-size: .8rem; line-height: 1.6; }
+.profile-name { margin-top: .6rem; font: 500 clamp(2rem, 7vw, 2.8rem)/1 var(--font-display); letter-spacing: -.06em; }
+.profile-bio { margin-top: .65rem; color: var(--muted); font-size: .82rem; line-height: 1.6; }
 
-.social-row { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: 1.5rem; justify-content: center; }
-.social-btn { display: grid; place-items: center; width: 2.75rem; height: 2.75rem; color: var(--ink); border: 1px solid var(--border); background: var(--surface); transition: transform .2s ease, background .2s ease, color .2s ease, box-shadow .2s ease, border-color .2s ease; border-radius: .4rem; }
-.social-btn:hover { color: var(--paper); background: var(--accent-deep); border-color: var(--accent-deep); transform: translateY(-3px); box-shadow: 0 6px 16px color-mix(in srgb, var(--accent-deep) 28%, transparent); }
+.social-row { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.6rem; justify-content: center; }
+.social-btn { display: grid; place-items: center; width: 2.9rem; height: 2.9rem; color: var(--ink); border: 1px solid var(--border); background: var(--surface); transition: transform .2s ease, background .2s ease, color .2s ease, box-shadow .2s ease, border-color .2s ease; border-radius: .45rem; }
+.social-btn:hover { color: var(--paper); background: var(--accent-deep); border-color: var(--accent-deep); transform: translateY(-3px); box-shadow: 0 6px 18px color-mix(in srgb, var(--accent-deep) 28%, transparent); }
 
-.links-main { margin-top: 2.5rem; }
+.links-main { margin-top: 2.75rem; }
 .links-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
 .links-heading p { color: var(--accent); font: .6rem var(--font-mono); letter-spacing: .09em; }
 .links-heading h2 { font: 500 1.2rem var(--font-display); letter-spacing: -.03em; }
 
-.link-card { min-height: 4.5rem; display: flex; align-items: center; gap: 1rem; padding: .85rem .5rem; border-bottom: 1px solid var(--border); transition: padding .25s ease, background .25s ease, border-color .25s ease; border-left: 2px solid transparent; }
-.link-card:hover { padding-inline: 1rem; background: var(--surface-hover); border-left-color: var(--accent); }
+.link-card { min-height: 4.75rem; display: flex; align-items: center; gap: 1rem; padding: .9rem .6rem; border-bottom: 1px solid var(--border); transition: padding .25s ease, background .25s ease, border-color .25s ease; border-left: 2px solid transparent; }
+.link-card:hover { padding-inline: 1.1rem; background: var(--surface-hover); border-left-color: var(--accent); }
 .link-card-body { flex: 1; }
-.link-card-label { font: 600 .9rem var(--font-body); }
-.link-card-icon { display: grid; place-items: center; width: 2.4rem; height: 2.4rem; color: var(--accent); background: color-mix(in srgb, var(--accent-deep) 12%, var(--paper)); border-radius: .35rem; flex-shrink: 0; }
+.link-card-label { font: 600 .92rem var(--font-body); }
+.link-card-icon { display: grid; place-items: center; width: 2.5rem; height: 2.5rem; color: var(--accent); background: color-mix(in srgb, var(--accent-deep) 12%, var(--paper)); border-radius: .35rem; flex-shrink: 0; }
 .link-arrow { color: var(--muted); transition: transform .2s ease, color .2s ease; flex-shrink: 0; }
 .link-card:hover .link-arrow { transform: translateX(3px); color: var(--accent); }
 
 .links-footer { display: flex; justify-content: space-between; margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--border); color: var(--muted); font: .6rem var(--font-mono); }
 
-@media (max-width: 480px) {
-  .links-cover { height: 8rem; }
-  .links-content { margin-top: -2.5rem; }
-  .links-profile { padding: 4.5rem 1.25rem 1.25rem; }
-  .profile-photo-ring { top: -2.75rem; width: 5.5rem; height: 5.5rem; }
-  .profile-name { font-size: 2.1rem; }
+@media (max-width: 768px) {
+  .links-cover { height: 12rem; }
+  .links-content { margin-top: -3.5rem; }
+  .links-profile { padding: 4.25rem 1.5rem 1.5rem; }
+  .profile-photo-ring { top: -3.1rem; width: 6.5rem; height: 6.5rem; }
+  .links-heading { align-items: start; flex-direction: column; gap: .4rem; }
+}
+
+@media (max-width: 520px) {
+  .links-cover { height: 10rem; }
+  .cover-banner img { object-position: center 30%; }
+  .links-content { margin-top: -3rem; width: min(100% - 1.25rem, 38rem); }
+  .links-profile { padding: 4rem 1.25rem 1.25rem; border-radius: .4rem; }
+  .profile-photo-ring { top: -2.85rem; width: 5.8rem; height: 5.8rem; }
+  .profile-name { font-size: 2rem; }
+  .profile-bio { font-size: .78rem; }
+  .social-row { gap: .4rem; }
+  .social-btn { width: 2.7rem; height: 2.7rem; }
+  .social-btn svg { width: 18px; height: 18px; }
+  .links-main { margin-top: 2rem; }
   .links-heading { align-items: start; flex-direction: column; gap: .35rem; }
-  .link-card:hover { padding-inline: .6rem; }
+  .link-card { min-height: 4.25rem; padding: .75rem .4rem; gap: .75rem; }
+  .link-card:hover { padding-inline: .65rem; }
+  .link-card-icon { width: 2.2rem; height: 2.2rem; }
+  .link-card-icon svg { width: 16px; height: 16px; }
+  .link-card-label { font-size: .85rem; }
+  .links-footer { flex-direction: column; align-items: center; gap: .5rem; text-align: center; }
+}
+
+@media (max-width: 380px) {
+  .links-content { width: 100%; padding-inline: .75rem; }
+  .links-profile { padding: 3.8rem 1rem 1rem; }
+  .profile-photo-ring { top: -2.6rem; width: 5.2rem; height: 5.2rem; }
+  .profile-name { font-size: 1.8rem; }
+  .profile-bio { font-size: .75rem; }
+  .social-btn { width: 2.5rem; height: 2.5rem; }
+  .social-btn svg { width: 16px; height: 16px; }
+  .link-card { min-height: 4rem; padding: .65rem .35rem; gap: .6rem; }
+  .link-card-icon { width: 2rem; height: 2rem; }
+  .link-card-icon svg { width: 14px; height: 14px; }
+  .link-card-label { font-size: .82rem; }
 }
